@@ -15,16 +15,15 @@
     </style>
 </head>
 <body>
-    <?php
+   <?php
+        include_once('config.php');
+        $sql = "SELECT * FROM userss";
+        $getUsers = $conn->prepare($sql);
+        $getUsers->execute();
+        $users=$getUsers->fetchAll();
+    ?>
+    <br> <br>
 
-    include_once('config.php');
-    $sql = 'SELECT * FROM users';
-    $getUsers = $conn->prepare($sql);
-    $getUsers ->excecute();
-    $users = $getUsers->fetchAll();
-   ?>
-
-    <br><br>
 
     <table>
         <thead>
@@ -50,8 +49,5 @@
     </tbody>
     </table>
     <a href="add.php">Add User</a>
-        
-
- 
 </body>
 </html>
